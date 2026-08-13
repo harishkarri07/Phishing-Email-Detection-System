@@ -1,0 +1,37 @@
+services:
+  # 1. Python FastAPI Machine Learning Backend Service
+  - type: web
+    name: phishing-ml-backend
+    env: python
+    region: oregon
+    plan: free
+    rootDir: backend
+    buildCommand: "pip install -r requirements.txt && python train_model.py"
+    startCommand: "uvicorn app:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.12
+      - key: FRONTEND_URL
+        fromService:
+          type: web
+          name: phishing-detector-web
+          property: host
+
+  # 2. Node.js Full-Stack Web Service (Express + Vite)
+  - type: web
+    name: phishing-detector-web
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: "npm install && npm run build"
+    startCommand: "npm start"
+    envVars:
+      - key: NODE_VERSION
+        value: 20.x
+      - key: ML_API_URL
+        fromService:
+          type: web
+          name: phishing-ml-backend
+          property: host
+      - key: VITE_API_URL
+        value: /api

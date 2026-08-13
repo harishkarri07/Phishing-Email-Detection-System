@@ -1,0 +1,21 @@
+{
+  "accuracy": 0.8333,
+  "precision": 0.75,
+  "recall": 1.0,
+  "f1_score": 0.8571,
+  "confusion_matrix": [
+    [
+      4,
+      2
+    ],
+    [
+      0,
+      6
+    ]
+  ],
+  "train_samples": 38,
+  "test_samples": 12,
+  "total_samples": 50,
+  "model_type": "Multinomial Naive Bayes (TF-IDF Vectorized)",
+  "vocabulary_size": 334
+}

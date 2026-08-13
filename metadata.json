@@ -1,0 +1,8 @@
+{
+  "name": "Phishing Email Detection System",
+  "description": "An intelligent cybersecurity application that analyzes emails for phishing attempts, spoofed senders, suspicious links, and urgent language patterns.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

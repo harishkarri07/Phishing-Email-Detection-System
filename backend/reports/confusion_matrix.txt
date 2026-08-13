@@ -1,0 +1,3 @@
+Confusion Matrix:
+TN: 4 | FP: 2
+FN: 0 | TP: 6
